@@ -27,6 +27,7 @@ Google Sheets editor add-on that exports Markdown tables
     + You can preview the Apps Script file.
     + You get your own personal copy of Cotton Markdown Tables.
     + Distributed, decentralized copies of the add-on prevent external factors from breaking your spreadsheet or data workflow.
+    + This may be your only option, depending on how your Google account domain is managed.
 
 ### Chromebook administrator
 
