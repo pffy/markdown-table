@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_blank">
+    
+    <!-- google addon stylesheet -->
+    <link rel="stylesheet" 
+      href="https://ssl.gstatic.com/docs/script/css/add-ons.css">   
+
+  </head>
+  <body>
+    <h2>Success!</h2>
+
+    <h4>You created a <abbr title="<?= opts.abbr; ?>"><?= opts.mode; ?></abbr> document. 
+    <?= opts.details; ?></h4>
+
+    <button id="copybtn">Copy to clipboard</button>
+
+    <br/>
+    You can also:
+    <ul>
+      <li><b><a href="<?= opts.url; ?>">View the file</a></b> on Google Drive.</li>
+      <li><b><a href="<?= opts.durl; ?>">Download the file</a></b> to your desktop.</li>
+    </ul> 
+
+    <input type="hidden" id="copytxt" 
+      value="<?= opts.output; ?>" />
+
+    <?!= include('stylesheet'); ?>
+
+    <!-- jquery 3.6.x -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+      language="javascript"></script>
+
+    <?!= include('javascript'); ?>
+    <?!= include('footer'); ?>
+  </body>
+
+  <!--
+  // name     : done.html
+  // git      : https://github.com/pffy/markdown-table
+  // author   : The Pffy Authors https://pffy.dev
+  // license  : https://unlicense.org/  
+  -->  
+</html>
