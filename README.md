@@ -23,7 +23,7 @@ Google Sheets editor add-on that exports Markdown tables
 ### Copy spreadsheet
   
   + Make a copy of Cotton Markdown Tables add-on. (coming soon)
-    + Add-on only available for that specific spreadsheet file.
+    + **Add-on only available for that specific spreadsheet file.**
     + You can preview the Apps Script file.
     + You get your own personal copy of Cotton Markdown Tables.
     + Distributed, decentralized copies of the add-on prevent external factors from breaking your spreadsheet or data workflow.
@@ -31,7 +31,7 @@ Google Sheets editor add-on that exports Markdown tables
 ### Chromebook administrator
 
   * Ask your Chromebook administrator to add and/or install Cotton Markdown Tables on your Chromebook.
-  * **Recommended for organizations with Chromebook management and acceptable use policies.**
+  * **Preferred by organizations with Chromebook management and acceptable use policies.**
   * Important things to tell your administrator:
     * "Cotton Markdown Tables add-on is free and open-source."
     * "Cotton Markdown Tables add-on only provides stable features with each deployment."
