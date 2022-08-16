@@ -97,13 +97,13 @@ You can:
   + View the Markdown file in Google Drive
   + Download the Markdown file to your desktop
 
-You can [watch the deliverable options demo][yt_options] on YouTube.
+You can watch the <a target="_blank" href="https://www.youtube.com/watch?v=WXVFfqUkGys">deliverable options video</a> on YouTube.
 
 ![cotton_prompt]
 
 # YOUTUBE CHANNEL
 
-  + [Cotton Markdown Tables on YouTube][yt_cotton]
+  + <a target="_blank" href="https://www.youtube.com/channel/UCl7X-xNklgG6Eg5X91TNn2Q?utm_source=github_pffy">Cotton Markdown Tables on YouTube</a>
 
 
 
