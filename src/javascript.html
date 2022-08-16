@@ -1,0 +1,64 @@
+<script language="JavaScript">
+
+// after document is loaded
+$( 'document' ).ready(function(){
+
+  // based on solution found here:
+  // https://api.jquery.com/change/
+
+  // watch different selections
+  $( '#choices' ).change(function(){
+    const len = $( 'option:selected' ).length;
+    const isOff = (len < 1 ) ? true : false;
+    $( '#choose' ).prop('disabled', isOff);
+  });
+
+  // selected named ranges export button
+  $( '#choose' ).click(function(){
+    
+    let str = '';
+    const arr = [];
+    
+    // combine all selected named ranges
+    $( 'option:selected' ).each(function() {
+      arr.push( $( this ).text() );
+    });
+
+    // disable button
+    $( '#choose' ).prop('disabled', true);    
+    
+    // show loading message
+    $( ' #msg ' ).text( 'Loading ...' );
+
+    // export selected named ranges
+    google.script.run
+      .exportSelectedNamedRanges(arr.join(','));    
+  });
+
+  // click button to copy markdown to clipboard
+  $( '#copybtn' ).click(function(){
+    
+    navigator.clipboard.writeText( $( '#copytxt' ).val())
+      .then(() => {
+
+      $( '#copybtn' ).text('Copied!');
+      setTimeout(function(){
+        $( '#copybtn' ).text('Copy to clipboard');
+      }, 1000);
+    });    
+  });
+
+  // cancel button closes the sidebar 
+  $( '#close' ).click(function(){
+    google.script.host.close();
+  });  
+});
+
+</script>
+
+<!--
+  // name     : javascript.html
+  // git      : https://github.com/pffy/markdown-table
+  // author   : The Pffy Authors https://pffy.dev
+  // license  : https://unlicense.org/  
+--> 
