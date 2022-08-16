@@ -31,7 +31,7 @@ Google Sheets editor add-on that exports Markdown tables
 ### Chromebook administrator
 
   * Ask your Chromebook administrator to add and/or install Cotton Markdown Tables on your Chromebook.
-  * **Recommended organizations with Chromebook management policies.**
+  * **Recommended for organizations with Chromebook management and acceptable use policies.**
   * Important things to tell your administrator:
     * "Cotton Markdown Tables add-on is free and open-source."
     * "Cotton Markdown Tables add-on only provides stable features with each deployment."
