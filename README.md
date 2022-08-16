@@ -97,6 +97,8 @@ You can:
   + View the Markdown file in Google Drive
   + Download the Markdown file to your desktop
 
+You can [watch the deliverable options demo][yt_options] on YouTube.
+
 ![cotton_prompt]
 
 # YOUTUBE CHANNEL
@@ -129,7 +131,8 @@ Google Sheets, Google Drive, and other Google software or features are trademark
 
   + https://unlicense.org/
 
-[yt_cotton]: https://www.youtube.com/channel/UCl7X-xNklgG6Eg5X91TNn2Q
+[yt_options]: https://www.youtube.com/watch?v=WXVFfqUkGys
+[yt_cotton]: https://www.youtube.com/channel/UCl7X-xNklgG6Eg5X91TNn2Q?utm_source=github_pffy
 [cotton_menu]: https://github.com/pffy/b/blob/main/png/cotton-menu.png
 [cotton_prompt]: https://github.com/pffy/b/blob/main/png/cotton-prompt.png
 [icon120]: https://github.com/pffy/b/raw/main/png/cotton-icon-120.png
