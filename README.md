@@ -12,22 +12,24 @@ Google Sheets editor add-on that exports Markdown tables
   * [Install Cotton Markdown Tables][g_cotton] from the Google Workspace Marketplace
   * [https://workspace.google.com/marketplace/app/cotton_markdown_tables/734474805574][g_cotton]
   * **Recommended.**
-    *  Apps and add-ons are actively [monitored and curated by Google][g_safety]. 
-    *  Better add-on management (install, remove, auto-update)
+    * Apps and add-ons are actively [monitored and curated by Google][g_safety]. 
+    * Better add-on management (install, remove, auto-update).
+    + New updates and critical fixes are available immediately.
 
 
 <a target="_blank" href="https://workspace.google.com/marketplace/app/cotton_markdown_tables/734474805574?pann=b&utm_source=github_pffy" target="_blank" aria-label="Get it from the Google Workspace Marketplace">
   <img alt="Google Workspace Marketplace badge" alt-text="Get it from the Google Workspace Marketplace" src="https://workspace.google.com/static/img/marketplace/en/gwmBadge.svg?" style="height: 68px">
 </a>
     
-### Copy spreadsheet
+### Copy spreadsheet document
   
-  + Make a copy of the Cotton Markdown Tables add-on. (coming soon)
-    + **Add-on only available for that specific spreadsheet file.**
-    + You can preview the Apps Script file.
+  + [**Make a copy**][copy] of the Cotton Markdown Tables add-on.
+    + **The add-on is only available for that specific spreadsheet file.**
+    + You can preview the Apps Script file before copying the file.
     + You get your own personal copy of Cotton Markdown Tables.
     + Distributed, decentralized copies of the add-on prevent external factors from breaking your spreadsheet or data workflow.
     + This may be your only option, depending on how your Google account domain is managed.
+    + Only updated for new features and/or critical fixes. (You will need to ***re-copy*** the file each time.)
 
 ### Chromebook administrator
 
@@ -50,7 +52,7 @@ Google Sheets editor add-on that exports Markdown tables
 
 > **NOTE:** for developers and power users.
   
-  * Details later.
+  * Copy all the files in the `src` folder to your App Script editor.
 
 # PERMISSIONS
 
@@ -132,6 +134,7 @@ Google Sheets, Google Drive, and other Google software or features are trademark
 
   + https://unlicense.org/
 
+[copy]: https://docs.google.com/spreadsheets/d/1UGDkKWGyheNhW23nlffiC9arht4dtVDFt-OWa8Iu10c/copy
 [yt_options]: https://www.youtube.com/watch?v=WXVFfqUkGys
 [yt_cotton]: https://www.youtube.com/channel/UCl7X-xNklgG6Eg5X91TNn2Q?utm_source=github_pffy
 [cotton_menu]: https://github.com/pffy/b/blob/main/png/cotton-menu.png
