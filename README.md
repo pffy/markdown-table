@@ -22,7 +22,7 @@ Google Sheets editor add-on that exports Markdown tables
     
 ### Copy spreadsheet
   
-  + Make a copy of Cotton Markdown Tables add-on. (coming soon)
+  + Make a copy of the Cotton Markdown Tables add-on. (coming soon)
     + **Add-on only available for that specific spreadsheet file.**
     + You can preview the Apps Script file.
     + You get your own personal copy of Cotton Markdown Tables.
