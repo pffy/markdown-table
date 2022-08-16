@@ -12,7 +12,7 @@ Google Sheets editor add-on that exports Markdown tables
     *  Better add-on management (install, remove, auto-update)
 
 
-<a href="https://workspace.google.com/marketplace/app/cotton_markdown_tables/734474805574?pann=b&utm_source=github_pffy" target="_blank" aria-label="Get it from the Google Workspace Marketplace">
+<a target="_blank" href="https://workspace.google.com/marketplace/app/cotton_markdown_tables/734474805574?pann=b&utm_source=github_pffy" target="_blank" aria-label="Get it from the Google Workspace Marketplace">
   <img alt="Google Workspace Marketplace badge" alt-text="Get it from the Google Workspace Marketplace" src="https://workspace.google.com/static/img/marketplace/en/gwmBadge.svg?" style="height: 68px">
 </a>
     
