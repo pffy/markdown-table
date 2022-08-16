@@ -52,7 +52,7 @@ Google Sheets editor add-on that exports Markdown tables
 
 > **NOTE:** for developers and power users.
   
-  * Copy all the files in the `src` folder to your App Script editor.
+  * Copy all the files in the `src` folder to your Google Apps Script editor.
 
 # PERMISSIONS
 
