@@ -42,8 +42,8 @@ Google Sheets editor add-on that exports Markdown tables
 
   * Ask your G Suite administrator to add and/or install Cotton Markdown Tables.
   * Important things to tell your administrator:
-    * See [PERMISSIONS][#permissions] section.
-    * See [COMPLIANCE][#compliance] section.
+    * See [PERMISSIONS](#permissions) section.
+    * See [COMPLIANCE](#compliance) section.
 
 ### Manual install
 
