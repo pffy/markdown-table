@@ -56,8 +56,17 @@ Google Sheets editor add-on that exports Markdown tables
   
   * Add each file in the `src` folder to your Google Apps Script editor.
     * Create the file. Copy/paste the contents of the file.
-    * Under `Services` in the Google App Script edtior, be sure to show the `appsscript.json` file before you copy/paste the contents.
+    * In the Google Apps Script Editor `Project Settings` tab, be sure the box that says `Show "appsscript.json" manifest file in editor` before you copy/paste the contents into that file.
     + You must still grant authorization to ***yourself*** to use the special [permissions](#permissions). 
+
+
+### CLASP INSTALL
+
+> **NOTE:** for developers and power users.
+
+  + You can use `clasp` to work with these files from the command-line:
+    + Learn more: https://developers.google.com/apps-script/guides/clasp
+
 
 # PERMISSIONS
 
