@@ -30,6 +30,8 @@ Google Sheets editor add-on that exports Markdown tables
     + Distributed, decentralized copies of the add-on prevent external factors from breaking your spreadsheet or data workflow.
     + This may be your only option, depending on how your Google account domain is managed.
     + Only updated for new features and/or critical fixes. (You will need to ***re-copy*** the file each time.)
+    + Not reviewed or curated by Google.
+      + You must still grant authorization to ***yourself*** to use the special [permissions](#permissions). 
 
 ### Chromebook administrator
 
@@ -52,7 +54,10 @@ Google Sheets editor add-on that exports Markdown tables
 
 > **NOTE:** for developers and power users.
   
-  * Copy all the files in the `src` folder to your Google Apps Script editor.
+  * Add each file in the `src` folder to your Google Apps Script editor.
+    * Create the file. Copy/paste the contents of the file.
+    * Under `Services` in the Google App Script edtior, be sure to show the `appsscript.json` file before you copy/paste the contents.
+    + You must still grant authorization to ***yourself*** to use the special [permissions](#permissions). 
 
 # PERMISSIONS
 
