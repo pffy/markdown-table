@@ -123,6 +123,24 @@ You can watch the <a target="_blank" href="https://www.youtube.com/watch?v=WXVFf
   + <a target="_blank" href="https://www.youtube.com/channel/UCl7X-xNklgG6Eg5X91TNn2Q?utm_source=github_pffy">Cotton Markdown Tables on YouTube</a>
 
 
+# SCOPES
+
+The following [OAuth scopes][g_scopes] were used for granting this add-on [PERMISSIONS](#permissions).
+
+### Non-sensitive scopes
+```
+https://www.googleapis.com/auth/spreadsheets.currentonly
+```
+
+### Sensitive scopes
+```
+https://www.googleapis.com/auth/drive
+https://www.googleapis.com/auth/script.container.ui
+```
+
+### Restricted scopes
+
+There are no restricted scopes used in this add-on.
 
 # COMPLIANCE
 
@@ -148,6 +166,7 @@ Google Sheets, Google Drive, and other Google software or features are trademark
 
   + https://unlicense.org/
 
+[g_scopes]: https://developers.google.com/identity/protocols/oauth2/scopes
 [copy]: https://docs.google.com/spreadsheets/d/1UGDkKWGyheNhW23nlffiC9arht4dtVDFt-OWa8Iu10c/copy
 [yt_options]: https://www.youtube.com/watch?v=WXVFfqUkGys
 [yt_cotton]: https://www.youtube.com/channel/UCl7X-xNklgG6Eg5X91TNn2Q?utm_source=github_pffy
