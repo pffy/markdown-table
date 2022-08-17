@@ -84,6 +84,9 @@ In order to provide useful features, this add-on requires permissions from you. 
   + *"Display and run third-party web content in prompts and sidebars inside Google applications"*
     + This permssion allows the add-on to provide user interaction for better usability. HTML, CSS, JavaScript and frameworks (e.g., jQuery) are implemented in the sidebar to help the add-on copy text to your clipboard, view saved files in your Google Drive, or download saved files to your desktop. No user data sent to pffy-cloud.
 
+### OAuth scopes
+  + See the [SCOPES](#scopes) section.
+
 ### Remove permissions
 
 Permissions [can be removed][revoke] at any time from your Google Account.
