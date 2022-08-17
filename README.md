@@ -60,7 +60,7 @@ Google Sheets editor add-on that exports Markdown tables
     + You must still grant authorization to ***yourself*** to use the special [permissions](#permissions). 
 
 
-### CLASP INSTALL
+### Command-line install with `clasp`
 
 > **NOTE:** for developers and power users.
 
