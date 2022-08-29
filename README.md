@@ -95,7 +95,7 @@ Permissions [can be removed][revoke] at any time from your Google Account.
 
 ## Software Support
 
-**GitHub Flavored <br/>Markdown Editors** | **Link** | **Supports<br/>Multi-line cells** | **Supports<br/>Alignments** 
+**Markdown Editors** | **Link** | **Supports<br/>Multi-line cells** | **Supports<br/>Alignments** 
 :-- | :-- | :--: | :--:
 GitHub | https://github.com | `[X]` | `[X]`
 GitHub Web Editor and IDE | https://github.dev | `[X]` | `[X]`
