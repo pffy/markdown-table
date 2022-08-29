@@ -23,8 +23,6 @@ function onOpen() {
       'openSelectNamedRanges')    
     .addItem('Export all named ranges to Markdown tables ...', 
       'exportAllNamedRanges')  
-    .addSeparator()
-    .addItem('About ...', 'openAboutBox')  
     .addToUi();
 }
 
