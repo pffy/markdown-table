@@ -95,7 +95,7 @@ Permissions [can be removed][revoke] at any time from your Google Account.
 
 ## Software Support
 
-**GitHub Flavored <br/>Markdown Editors** | **Link** | **Supports<br/>Multi-line cells** | **Supports<br/>Alignment** 
+**GitHub Flavored <br/>Markdown Editors** | **Link** | **Supports<br/>Multi-line cells** | **Supports<br/>Alignments** 
 :-- | :-- | :--: | :--:
 GitHub | https://github.com | `[X]` | `[X]`
 GitHub Web Editor and IDE | https://github.dev | `[X]` | `[X]`
@@ -104,9 +104,11 @@ GitLab | https://gitlab.com | `[X]` | `[X]`
 Atom | https://atom.io/ | `[X]` | `[X]`
 StackEdit |  https://stackedit.io/ | `[X]` | `[X]`
 Minimalist Markdown Editor | [Chrome Web Store][cws_mme] | `[X]` | `[X]`
-Mado | - | `[X]` | `[X]` |
+Mado | [Chrome Web Store][cws_mado] | `[X]` | `[X]` 
 WordPress |  https://wordpress.com/ | `[ ]` | `[X]`
+Google Colaboratory<br/>Jupyter Notebook | https://colab.research.google.com/ | `[X]` | `[X]`
 
+[cws_mado]: https://chrome.google.com/webstore/detail/mado/gmmlaihnodfojphcmjeemhaeajaldcdj
 [cws_mme]: https://chrome.google.com/webstore/detail/minimalist-markdown-edito/pghodfjepegmciihfhdipmimghiakcjf
 
 
