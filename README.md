@@ -103,6 +103,7 @@ Atom | https://atom.io/ | `[X]` | `[X]`
 Bear App (with Marked 2 ??) |  https://bear.app | `[X]` | `[X]`
 Day One Journal |  https://dayoneapp.com/ | `[ ]` | `[X]`
 Drafts | https://getdrafts.com/ | `[X]` | `[X]`
+Dillinger | https://dillinger.io/ | `[ ]` | `[X]`
 GitLab | https://gitlab.com | `[X]` | `[X]`
 Google Colaboratory<br/>Jupyter Notebook | https://colab.research.google.com/ | `[X]` | `[X]`
 Mado | [Chrome Web Store][cws_mado] | `[X]` | `[X]` 
