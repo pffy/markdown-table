@@ -105,7 +105,8 @@ function cotton (range) {
       }
       
       if(isFontMonospace(fontFamilies[x][y])) {
-        val = val.replace(/\n/g, '`<br/>`'); // pre-processing for line break?        
+        // pre-processing for line break conversion
+        val = val.replace(/\n/g, '`<br/>`');        
         val = addTextSyntax(val, '`');
       }
 
