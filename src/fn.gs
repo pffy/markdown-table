@@ -155,36 +155,42 @@ function isFontMonospace(str) {
 
   // monospace Google fonts:
   // https://www.google.com/fonts
-  const MONOSPACE_FONTS = [
-    'anonymous pro',
-    'b612 mono',
-    'courier',
-    'courier new',
-    'courier prime',
-    'cousine',
-    'cutive mono',
-    'dm mono',
-    'droid sans mono',
-    'fira code',
-    'fira mono',
-    'ibm plex mono',
-    'inconsolata',
-    'major mono display',
-    'monospace',
-    'nanum gothic coding',
-    'nova mono',
-    'overpass mono',
-    'oxygen mono',
-    'pt mono',
-    'roboto mono',
-    'share tech mono',
-    'space mono',
-    'source code pro',
-    'ubuntu mono',
-    'vt323'
-  ];
+  const fonts = `anonymous pro
+azeret mono
+b612 mono
+courier
+courier new
+courier prime
+cousine
+cutive mono
+dm mono
+droid sans mono
+fira code
+fira mono
+ibm plex mono
+inconsolata
+jetbrains mono
+major mono display
+monospace
+nanum gothic coding
+noto sans mono
+nova mono
+overpass mono
+oxygen mono
+pt mono
+red hat mono
+roboto mono
+share tech mono
+space mono
+source code pro
+spline sans mono
+syne mono
+ubuntu mono
+vt323
+xanh mono
+`.trim().split(/\n/);
 
-  return (MONOSPACE_FONTS.indexOf('' + str.toLowerCase()) > -1);
+  return (fonts.indexOf('' + str.toLowerCase()) > -1);
 }
 
 // returns true if font is bold; otherwise, false. 
