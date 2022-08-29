@@ -196,7 +196,7 @@ Google Sheets, Google Drive, and other Google software or features are trademark
   
 # REFERENCE
 
-  + Does the name "Gruber" mean anything to you, lieutenant? It rings a few bells. Markdown was created by [John Gruber](http://daringfireball.net/projects/markdown/).
+  + Does the name **Gruber** mean anything to you, lieutenant? It rings a few bells. Markdown was created by [John Gruber](http://daringfireball.net/projects/markdown/).
 
 
 [g_scopes]: https://developers.google.com/identity/protocols/oauth2/scopes
