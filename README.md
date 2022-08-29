@@ -64,10 +64,6 @@ Google Sheets editor add-on that exports Markdown tables
   + You can use `clasp` to work with these files from the command-line:
     + Learn more: https://developers.google.com/apps-script/guides/clasp
 
-# COMPATIBILITY
-
-  + TBD
-
 # PERMISSIONS
 
 In order to provide useful features, this add-on requires permissions from you. The following describes the purpose of permissions for this add-on:
@@ -90,6 +86,10 @@ In order to provide useful features, this add-on requires permissions from you. 
 ### Remove permissions
 
 Permissions [can be removed][revoke] at any time from your Google Account.
+
+# COMPATIBILITY
+
+  + TBD
 
 # FEATURES
 
