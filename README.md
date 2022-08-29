@@ -193,6 +193,11 @@ Google Sheets, Google Drive, and other Google software or features are trademark
 # LICENSE
 
   + https://unlicense.org/
+  
+# REFERENCE
+
+  + Does the name "Gruber" mean anything to you, lieutenant? It rings a few bells. Markdown was created by [John Gruber](http://daringfireball.net/projects/markdown/).
+
 
 [g_scopes]: https://developers.google.com/identity/protocols/oauth2/scopes
 [copy]: https://docs.google.com/spreadsheets/d/1UGDkKWGyheNhW23nlffiC9arht4dtVDFt-OWa8Iu10c/copy
