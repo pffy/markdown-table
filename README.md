@@ -64,6 +64,9 @@ Google Sheets editor add-on that exports Markdown tables
   + You can use `clasp` to work with these files from the command-line:
     + Learn more: https://developers.google.com/apps-script/guides/clasp
 
+# COMPATIBILITY
+
+  + TBD
 
 # PERMISSIONS
 
