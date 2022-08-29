@@ -45,6 +45,15 @@ function cotton (range) {
   // font style: line-through (strikethrough)
   const fontLines = rng.getFontLines();
 
+  // data validation for cell input
+  const valids = rng.getDataValidations();
+
+  // any data validation, including checkboxes
+  const hasValids = hasAnyValids(valids);
+
+  // notes on cell input
+  const notes = rng.getNotes();
+
   // cell values
   const values = rng.getValues();
 
@@ -103,10 +112,19 @@ function cotton (range) {
         arr.push('');
         continue;
       }
+
+      // simply prints text check box for this cell
+      if(hasValids && valids[x][y] && isCheckbox(valids[x][y])) {
+        if(cell.isChecked()) {
+          arr.push('`[X]`');
+        } else {
+          arr.push('`[ ]`');          
+        }
+        continue;
+      }
       
       if(isFontMonospace(fontFamilies[x][y])) {
-        // pre-processing for line break conversion
-        val = val.replace(/\n/g, '`<br/>`');        
+        val = val.replace(/\n/g, '`<br/>`'); // pre-processing
         val = addTextSyntax(val, '`');
       }
 
@@ -124,8 +142,8 @@ function cotton (range) {
 
       // converts new line into line break HTML tag
       // NOTE: should be after font styling
-      val = val.replace(/\n/g, '<br/>');      
-      
+      val = val.replace(/\n/g, '<br/>');
+
       arr.push(val);
     }
 
@@ -161,6 +179,20 @@ function cotton (range) {
 
     return false;
   }
+
+  // returns true if any valid types detected; otherwise, false
+  function hasAnyValids(arr) {
+    return !arr.every(function(r){
+      return true === r.every(function(c){
+        return c === null;  
+      });
+    });    
+  }  
+
+  // returns true if any checkboxes detected; otherwise, false
+  function isCheckbox(validation) {
+    return validation.getCriteriaType().toJSON() === 'CHECKBOX';
+  }  
 
   // returns Markdown table
   return table.join('\n');
