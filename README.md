@@ -89,7 +89,26 @@ Permissions [can be removed][revoke] at any time from your Google Account.
 
 # COMPATIBILITY
 
-  + TBD
+## Hardware Support
+  + Apple iPad (using Safari web browser only)
+  + Chromebook
+
+## Software Support
+
+**GitHub Flavored <br/>Markdown Editors** | **Link** | **Supports<br/>Multi-line cells** | **Supports<br/>Alignment** 
+:-- | :-- | :--: | :--:
+GitHub | https://github.com | `[X]` | `[X]`
+GitHub Web Editor and IDE | https://github.dev | `[X]` | `[X]`
+Visual Studio Code Online | https://vscode.dev | `[X]` | `[X]`
+GitLab | https://gitlab.com | `[X]` | `[X]`
+Atom | https://atom.io/ | `[X]` | `[X]`
+StackEdit |  https://stackedit.io/ | `[X]` | `[X]`
+Minimalist Markdown Editor | [Chrome Web Store][cws_mme] | `[X]` | `[X]`
+Mado | - | `[X]` | `[X]` |
+WordPress |  https://wordpress.com/ | `[ ]` | `[X]`
+
+[cws_mme]: https://chrome.google.com/webstore/detail/minimalist-markdown-edito/pghodfjepegmciihfhdipmimghiakcjf
+
 
 # FEATURES
 
