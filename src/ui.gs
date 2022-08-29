@@ -124,8 +124,3 @@ function openSelectNamedRanges() {
 function sayNoNamedRanges() {
   say('You have no named ranges in this spreadsheet. To create named ranges, try the menu item Data > "Named ranges" ...', 'Oops!'); 
 }
-
-// opens sidebar with info about add-on
-function openAboutBox() {
-  openSidebar('about');
-}
