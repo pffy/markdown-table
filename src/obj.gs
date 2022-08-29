@@ -67,7 +67,6 @@ function cotton (range) {
 
     x = i - 1;
 
-
     if(displayValues[x].every(isBlank)) {
       arr = new Array(cols).fill('&nbsp;');
       table.push(arr.join(pipe).trim());
@@ -78,7 +77,6 @@ function cotton (range) {
     } else {
       arr = [];
     }
-
 
     for(let j = 1; j < cols + 1; j++) {
 
@@ -107,6 +105,7 @@ function cotton (range) {
       }
       
       if(isFontMonospace(fontFamilies[x][y])) {
+        val = val.replace(/\n/g, '`<br/>`'); // pre-processing for line break?        
         val = addTextSyntax(val, '`');
       }
 
@@ -122,6 +121,10 @@ function cotton (range) {
         val = addTextSyntax(val, '~~');
       }      
 
+      // converts new line into line break HTML tag
+      // NOTE: should be after font styling
+      val = val.replace(/\n/g, '<br/>');      
+      
       arr.push(val);
     }
 
