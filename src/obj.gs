@@ -49,10 +49,30 @@ function cotton (range) {
   const valids = rng.getDataValidations();
 
   // any data validation, including checkboxes
-  const hasValids = hasAnyValids(valids);
+  const hasValids = !valids.every(function(r){ // rows
+      return true === r.every(function(c){ // columns
+        return c === null;  
+      });
+    }); 
 
   // notes on cell input
   const notes = rng.getNotes();
+
+  let noteCount = 0;
+  let noteItem = '';
+
+  const footnotes = [];
+
+  // any notes?
+  const hasNotes = !notes.every(function(r){ // rows
+      return true === r.every(function(c){ // columns
+        return c === "";  
+      });
+    });
+
+  if(hasNotes) {
+    footnotes.push('\n\n### Notes');
+  }
 
   // cell values
   const values = rng.getValues();
@@ -77,12 +97,16 @@ function cotton (range) {
     x = i - 1;
 
     if(displayValues[x].every(isBlank)) {
+      
       arr = new Array(cols).fill('&nbsp;');
       table.push(arr.join(pipe).trim());
+      
       if(i < 2) {
         table.push(rowtwo);
       } 
+      
       continue;
+
     } else {
       arr = [];
     }
@@ -113,13 +137,31 @@ function cotton (range) {
         continue;
       }
 
+      // sanitize Markdown table text
+      val = cleanText(val);
+
+      // process notes first
+      if(hasNotes && notes[x][y]) {
+        noteCount++;
+        noteItem = `<sup>${noteCount}</sup>`;
+        footnotes.push(`${noteItem} ${notes[x][y]}<br/>`);
+      }
+
+
       // simply prints text check box for this cell
       if(hasValids && valids[x][y] && isCheckbox(valids[x][y])) {
         if(cell.isChecked()) {
-          arr.push('`[X]`');
+          val = '`[X]`';
+          arr.push();
         } else {
-          arr.push('`[ ]`');          
+          val = '`[ ]`';
         }
+
+        if(hasNotes && notes[x][y]) {
+          val = val + noteItem;          
+        }
+
+        arr.push(val); // checkbox cell complete
         continue;
       }
       
@@ -144,6 +186,10 @@ function cotton (range) {
       // NOTE: should be after font styling
       val = val.replace(/\n/g, '<br/>');
 
+      if(hasNotes && notes[x][y]) {
+        val = val + noteItem;
+      }      
+
       arr.push(val);
     }
 
@@ -153,6 +199,10 @@ function cotton (range) {
       table.push(rowtwo);
     }    
   }
+
+
+  // add footnotes below markdown table
+  table.push(footnotes.join('\n') + '\n');
 
   // some inner functions
 
@@ -179,15 +229,6 @@ function cotton (range) {
 
     return false;
   }
-
-  // returns true if any valid types detected; otherwise, false
-  function hasAnyValids(arr) {
-    return !arr.every(function(r){
-      return true === r.every(function(c){
-        return c === null;  
-      });
-    });    
-  }  
 
   // returns true if any checkboxes detected; otherwise, false
   function isCheckbox(validation) {

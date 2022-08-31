@@ -291,3 +291,27 @@ function addNamedRangeSelectHtml() {
 
   return arr.join('\n');
 }
+
+// cleans Markdown in each table cell
+function cleanText(str) {
+
+  // prevents "new column"
+  // all must go
+  str = str.replace(/\|/g, '&vert;' );
+
+  // prevents list item
+  // first must go
+  str = str.replace(/^\*/, '&ast;' );
+  str = str.replace(/^\-/, '&plus;' );
+  str = str.replace(/^\+/, '&minus;' );    
+
+  // prevents headers
+  // first must go
+  str = str.replace(/^#/, '&num;' ); // hashtag
+
+  // prevents quote block
+  // first must go
+  str = str.replace(/^>/, '&gt;' );
+
+  return str;
+}
