@@ -315,3 +315,19 @@ function cleanText(str) {
 
   return str;
 }
+
+// returns true if any checkboxes detected; otherwise, false
+function isCheckbox(validation) {
+  return validation.getCriteriaType().toJSON() === 'CHECKBOX';
+}  
+
+// surrounds string with matching HTML tags
+function addHtmlTagToSyntax(str, tag) {
+  return `<${tag}>${str}</${tag}>`;
+}
+
+// adds hyperlink to Markdown table syntax
+function addHyperlinkToSyntax(obj) {
+  obj.title = obj.title.replace(/\"/g, '\\"');
+  return `[${obj.label}](${obj.url} "${obj.title}")`;
+}

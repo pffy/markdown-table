@@ -37,13 +37,32 @@ function cotton (range) {
   const fontFamilies = rng.getFontFamilies();
 
   // font style: bold
+  // deprecated by class TextStyle ?  
   const fontWeights = rng.getFontWeights();
 
   // font style: italics
+  // deprecated by class TextStyle ?
   const fontStyles = rng.getFontStyles();
 
   // font style: line-through (strikethrough)
+  // deprecated by class TextStyle ?
   const fontLines = rng.getFontLines();
+
+  // formulas
+  const formulas = rng.getFormulas();
+
+  // any formulas??
+  const hasFormulas = !formulas.every(function(r){ // rows
+      return true === r.every(function(c){ // columns
+        return c === '';  
+      });
+    });  
+
+  // rich text values
+  const richTexts = rng.getRichTextValues();
+
+  // text styles
+  const textStyles = rng.getTextStyles();
 
   // data validation for cell input
   const valids = rng.getDataValidations();
@@ -70,15 +89,15 @@ function cotton (range) {
       });
     });
 
-  if(hasNotes) {
-    footnotes.push('\n\n### Notes');
-  }
-
   // cell values
-  const values = rng.getValues();
+  // never used ?
+  // const values = rng.getValues();
 
   // locale and user-formatted strings
   const displayValues = rng.getDisplayValues();
+
+  // blank test function
+  const isBlank = (ev) => (ev === '');  
 
   // position in range
   let x = 0;
@@ -90,8 +109,19 @@ function cotton (range) {
   let arr = [];
   let table = [];
 
-  const isBlank = (ev) => (ev === '');
+  // hyperlink depot
+  const re_hyperlink = /^(\=HYPERLINK\()/;
+  const hyperlink = {};
+  
+  let hasHyperlink = false;
+  let hasHypertext = false;
 
+  // now begins the warp and weft of the exporter
+
+  if(hasNotes) {
+    footnotes.push('\n\n### Notes');
+  }
+  
   for(let i = 1; i < rows + 1; i++) {
 
     x = i - 1;
@@ -129,11 +159,11 @@ function cotton (range) {
 
       // fixes rendering issue
       if(arr.length < 1 && !val) {
-        arr.push('');
+        arr.push(' ');
       }
 
       if(!val) {
-        arr.push('');
+        arr.push('&nbsp;');
         continue;
       }
 
@@ -147,7 +177,6 @@ function cotton (range) {
         footnotes.push(`${noteItem} ${notes[x][y]}<br/>`);
       }
 
-
       // simply prints text check box for this cell
       if(hasValids && valids[x][y] && isCheckbox(valids[x][y])) {
         if(cell.isChecked()) {
@@ -157,11 +186,13 @@ function cotton (range) {
           val = '`[ ]`';
         }
 
+        // postfix the reference to the value
         if(hasNotes && notes[x][y]) {
           val = val + noteItem;          
         }
 
-        arr.push(val); // checkbox cell complete
+        // checkbox cell complete; adds column to row
+        arr.push(val); 
         continue;
       }
       
@@ -170,41 +201,69 @@ function cotton (range) {
         val = addTextSyntax(val, '`');
       }
 
-      if(isFontBold(fontWeights[x][y])) {
+      // detect and convert bold
+      if(textStyles[x][y].isBold()) {
         val = addTextSyntax(val, '**');
       }
 
-      if(isFontItalic(fontStyles[x][y])) {
+      // detect and convert italic
+      if(textStyles[x][y].isItalic()) {
         val = addTextSyntax(val, '*');
       }
 
-      if(isFontStrikethrough(fontLines[x][y])) {
+      // detect and convert strike-through
+      if(textStyles[x][y].isStrikethrough()) {
         val = addTextSyntax(val, '~~');
+      }
+
+      // detect and convert underline
+      if(textStyles[x][y].isUnderline() && !richTexts[x][y].getLinkUrl()) {
+        say('hi underline!');
+        val = addHtmlTagToSyntax(val, 'ins');
       }      
 
       // converts new line into line break HTML tag
       // NOTE: should be after font styling
       val = val.replace(/\n/g, '<br/>');
 
+      // checks for =HYPERLINK()
+      hasHyperlink = hasFormulas && formulas[x][y] && re_hyperlink.test(formulas[x][y]);
+
+      // checks for hypertext formatting
+      hasHypertext = richTexts[x][y].getLinkUrl();
+
+      // if hyperlink detected, val becomes a label
+      if(hasHyperlink || hasHypertext) {
+        
+        hyperlink.url = richTexts[x][y].getLinkUrl();
+        hyperlink.title = richTexts[x][y].getText();
+        hyperlink.label = val;
+
+        val = addHyperlinkToSyntax(hyperlink);
+      }
+
+      // postfix the reference to the cell value
       if(hasNotes && notes[x][y]) {
         val = val + noteItem;
-      }      
+      }
 
+      // adds new column to current row
       arr.push(val);
     }
 
+    // adds new row to table
     table.push(arr.join(pipe).trim());
 
+    // adds alignments row to Markdown table
     if(i < 2) {
       table.push(rowtwo);
     }    
   }
 
-
   // add footnotes below markdown table
   table.push(footnotes.join('\n') + '\n');
 
-  // some inner functions
+  // some inner functions are bleow
 
   // returns true if row is hidden; otherwise, false.  
   function isTableRowHidden(num) {
@@ -229,11 +288,6 @@ function cotton (range) {
 
     return false;
   }
-
-  // returns true if any checkboxes detected; otherwise, false
-  function isCheckbox(validation) {
-    return validation.getCriteriaType().toJSON() === 'CHECKBOX';
-  }  
 
   // returns Markdown table
   return table.join('\n');
