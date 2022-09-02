@@ -218,7 +218,6 @@ function cotton (range) {
 
       // detect and convert underline
       if(textStyles[x][y].isUnderline() && !richTexts[x][y].getLinkUrl()) {
-        say('hi underline!');
         val = addHtmlTagToSyntax(val, 'ins');
       }      
 
