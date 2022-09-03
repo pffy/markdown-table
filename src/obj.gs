@@ -31,7 +31,7 @@ function cotton (range) {
     });
 
   // syntax for column alignments (row two)
-  const rowtwo = aligns.join(pipe);
+  const rowtwo = pipe + aligns.join(pipe) + pipe;
 
   // font typeface
   const fontFamilies = rng.getFontFamilies();
@@ -109,6 +109,8 @@ function cotton (range) {
   let arr = [];
   let table = [];
 
+  let therow = '';
+
   // hyperlink depot
   const re_hyperlink = /^(\=HYPERLINK\()/;
   const hyperlink = {};
@@ -132,11 +134,12 @@ function cotton (range) {
 
     if(displayValues[x].every(isBlank)) {
       
-      arr = new Array(cols).fill('&nbsp;');
-      table.push(arr.join(pipe).trim());
+      arr = new Array(cols).fill(' ');
+      therow = pipe + arr.join(pipe) + pipe;
+      table.push(therow.trim());
       
       if(i < 2) {
-        table.push(rowtwo);
+        table.push(rowtwo.trim());
       } 
       
       continue;
@@ -162,12 +165,12 @@ function cotton (range) {
       val = displayValues[x][y].trim();
 
       // fixes rendering issue
-      if(arr.length < 1 && !val) {
-        arr.push(' ');
-      }
+//      if(arr.length < 1 && !val) {
+//        arr.push(' ');
+//      }
 
       if(!val) {
-        arr.push('&nbsp;');
+        arr.push(' ');
         continue;
       }
 
@@ -276,11 +279,12 @@ function cotton (range) {
     }
 
     // adds new row to table
-    table.push(arr.join(pipe).trim());
+    therow = pipe + arr.join(pipe) + pipe;
+    table.push(therow.trim());    
 
     // adds alignments row to Markdown table
     if(i < 2) {
-      table.push(rowtwo);
+      table.push(rowtwo.trim());
     }    
   }
 
