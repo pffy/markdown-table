@@ -330,4 +330,11 @@ function addHtmlTagToSyntax(str, tag) {
 function addHyperlinkToSyntax(obj) {
   obj.title = obj.title.replace(/\"/g, '\\"');
   return `[${obj.label}](${obj.url} "${obj.title}")`;
+}  
+
+// generates YouTube thumbnail syntax
+function addYoutubeSyntax(obj) {
+  obj.title = obj.label.replace(/\"/g, '&quot;');
+  obj.image = `https://img.youtube.com/vi/${obj.id}/mqdefault.jpg`;
+  return `[![${obj.label}](${obj.image} "${obj.title}")](${obj.url})`;
 }

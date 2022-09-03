@@ -90,7 +90,7 @@ function cotton (range) {
     });
 
   // cell values
-  // never used ?
+  // never used
   // const values = rng.getValues();
 
   // locale and user-formatted strings
@@ -115,6 +115,10 @@ function cotton (range) {
   
   let hasHyperlink = false;
   let hasHypertext = false;
+
+  // youtube depot
+  const re_yt_watch = /\<\<https\:\/\/www\.youtube\.com\/watch\?v\=(.{11})\>\>/;
+  const yt = {};
 
   // now begins the warp and weft of the exporter
 
@@ -167,9 +171,29 @@ function cotton (range) {
         continue;
       }
 
+      if(re_yt_watch.test(val)) {
+
+        yt.id = val.match(re_yt_watch)[1]; 
+        yt.url = `https://www.youtube.com/watch?=${yt.id}`;
+
+        yt.label = 'YouTube Video';
+
+        if(hasNotes && notes[x][y]) {
+          yt.label = notes[x][y];
+        }
+
+        val = addYoutubeSyntax(yt);
+
+        footnotes.push(`VIDEO: ${notes[x][y]}<br/>${yt.url}<br/>`);                  
+        
+        // done with the column
+        arr.push(val);
+        continue;
+      }
+
       // sanitize Markdown table text
       val = cleanText(val);
-
+      
       // process notes first
       if(hasNotes && notes[x][y]) {
         noteCount++;
@@ -218,6 +242,7 @@ function cotton (range) {
 
       // detect and convert underline
       if(textStyles[x][y].isUnderline() && !richTexts[x][y].getLinkUrl()) {
+        say('hi underline!');
         val = addHtmlTagToSyntax(val, 'ins');
       }      
 
