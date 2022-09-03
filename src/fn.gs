@@ -194,16 +194,19 @@ xanh mono
 }
 
 // returns true if font is bold; otherwise, false. 
+// deprecated by TextStyle class?
 function isFontBold(str) {
   return !!str && (str.toLowerCase() === 'bold');
 }
 
 // returns true if font is italic; otherwise, false.
+// deprecated by TextStyle class?
 function isFontItalic(str) {
   return !!str && (str.toLowerCase() === 'italic');
 }
 
 // returns true if font is strikethrough; otherwise, false.
+// deprecated by TextStyle class?
 function isFontStrikethrough(str) {
   return !!str && (str.toLowerCase() === 'line-through');
 }
