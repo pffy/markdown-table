@@ -164,11 +164,6 @@ function cotton (range) {
 
       val = displayValues[x][y].trim();
 
-      // fixes rendering issue
-//      if(arr.length < 1 && !val) {
-//        arr.push(' ');
-//      }
-
       if(!val) {
         arr.push(' ');
         continue;
