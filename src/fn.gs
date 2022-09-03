@@ -193,24 +193,6 @@ xanh mono
   return (fonts.indexOf('' + str.toLowerCase()) > -1);
 }
 
-// returns true if font is bold; otherwise, false. 
-// deprecated by TextStyle class?
-function isFontBold(str) {
-  return !!str && (str.toLowerCase() === 'bold');
-}
-
-// returns true if font is italic; otherwise, false.
-// deprecated by TextStyle class?
-function isFontItalic(str) {
-  return !!str && (str.toLowerCase() === 'italic');
-}
-
-// returns true if font is strikethrough; otherwise, false.
-// deprecated by TextStyle class?
-function isFontStrikethrough(str) {
-  return !!str && (str.toLowerCase() === 'line-through');
-}
-
 // adds Markdown text formatting syntax to string
 function addTextSyntax(str, chr) {
   return Utilities.formatString(chr + '%s' + chr, str);
@@ -340,4 +322,10 @@ function addYoutubeSyntax(obj) {
   obj.title = obj.label.replace(/\"/g, '&quot;');
   obj.image = `https://img.youtube.com/vi/${obj.id}/mqdefault.jpg`;
   return `[![${obj.label}](${obj.image} "${obj.title}")](${obj.url})`;
+}
+
+// generates IMG html element
+function addImageHtml(obj) {
+  obj.label = obj.label.replace(/\"/g, "&quot;");
+  return `<img src="${obj.url}" width="${obj.w}" height="${obj.h}" title="${obj.label}">`;
 }

@@ -36,18 +36,6 @@ function cotton (range) {
   // font typeface
   const fontFamilies = rng.getFontFamilies();
 
-  // font style: bold
-  // deprecated by class TextStyle ?  
-  const fontWeights = rng.getFontWeights();
-
-  // font style: italics
-  // deprecated by class TextStyle ?
-  const fontStyles = rng.getFontStyles();
-
-  // font style: line-through (strikethrough)
-  // deprecated by class TextStyle ?
-  const fontLines = rng.getFontLines();
-
   // formulas
   const formulas = rng.getFormulas();
 
@@ -112,27 +100,28 @@ function cotton (range) {
   let therow = '';
 
   // hyperlink depot
-  const re_hyperlink = /^(\=HYPERLINK\()/;
+  const re_hyperlink = /^(\=HYPERLINK\()/i;
   const hyperlink = {};
   
   let hasHyperlink = false;
   let hasHypertext = false;
 
   // youtube depot
-  const re_yt_watch = /\<\<https\:\/\/www\.youtube\.com\/watch\?v\=(.{11})\>\>/;
+  const re_yt_watch = /\<\<https\:\/\/www\.youtube\.com\/watch\?v\=(.{11})\>\>/i;
   const yt = {};
 
-  // now begins the warp and weft of the exporter
+  // image depot
+  const re_img_url = /^(\=IMAGE\(\"(.*)\"\))/i;
+  const re_img_ref = /^(\=IMAGE\((\w+\d+)\))/i;
+  const img = {};
 
-  if(hasNotes) {
-    footnotes.push('\n\n### Notes');
-  }
+  // now begins the warp and weft of the exporter
   
   for(let i = 1; i < rows + 1; i++) {
 
     x = i - 1;
 
-    if(displayValues[x].every(isBlank)) {
+    if(!hasNotes && !hasFormulas && displayValues[x].every(isBlank)) {
       
       arr = new Array(cols).fill(' ');
       therow = pipe + arr.join(pipe) + pipe;
@@ -162,6 +151,51 @@ function cotton (range) {
         continue;
       }
 
+      // pre-value processor for =IMAGE(url)
+      if(hasFormulas && re_img_url.test(formulas[x][y])) {
+
+        img.url = formulas[x][y].match(re_img_url)[2];
+        img.label = 'Image';
+
+        if(hasNotes && notes[x][y]) {
+          img.label = notes[x][y];
+        }
+      
+        img.h = sht.getRowHeight(cell.getRow());
+        img.w = sht.getColumnWidth(cell.getColumn());
+
+        val = addImageHtml(img);
+
+        footnotes.push(`IMAGE: ${notes[x][y]}<br/>${img.url}<br/>`);                  
+        
+        // done with the column
+        arr.push(val);
+        continue;
+      }
+
+      // pre-value processor for =IMAGE(A1)
+      if(hasFormulas && re_img_ref.test(formulas[x][y])) {
+
+        img.ref = formulas[x][y].match(re_img_ref)[2];
+        img.url = sht.getRange(img.ref).getDisplayValue();
+        img.label = 'Image';
+
+        if(hasNotes && notes[x][y]) {
+          img.label = notes[x][y];
+        }
+      
+        img.h = sht.getRowHeight(cell.getRow());
+        img.w = sht.getColumnWidth(cell.getColumn());
+
+        val = addImageHtml(img);
+
+        footnotes.push(`IMAGE: ${notes[x][y]}<br/>${img.url}<br/>`);                  
+        
+        // done with the column
+        arr.push(val);
+        continue;
+      }            
+
       val = displayValues[x][y].trim();
 
       if(!val) {
@@ -169,6 +203,7 @@ function cotton (range) {
         continue;
       }
 
+      // post-value processor for YouTube thumbnail generator
       if(re_yt_watch.test(val)) {
 
         yt.id = val.match(re_yt_watch)[1]; 
@@ -188,6 +223,8 @@ function cotton (range) {
         arr.push(val);
         continue;
       }
+
+      
 
       // sanitize Markdown table text
       val = cleanText(val);
@@ -284,7 +321,9 @@ function cotton (range) {
   }
 
   // add footnotes below markdown table
-  table.push(footnotes.join('\n') + '\n');
+  if(!!footnotes.length) {
+    table.push('\n\n### Notes\n' + footnotes.join('\n') + '\n');
+  }
 
   // some inner functions are bleow
 
