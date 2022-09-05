@@ -5,7 +5,6 @@
 // author   : The Pffy Authors https://pffy.dev
 // license  : https://unlicense.org/
 
-
 function onOpen() {
   var ui = SpreadsheetApp.getUi();
   ui.createAddonMenu()
