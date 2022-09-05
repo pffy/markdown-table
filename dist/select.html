@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_blank">
+    <title><?= opts.title; ?></title>
+
+    <!-- google addon stylesheet -->
+    <link rel="stylesheet" 
+      href="https://ssl.gstatic.com/docs/script/css/add-ons.css">   
+
+  </head>
+  <body>
+    <h1>Named Ranges</h1>
+
+
+    Select one <abbr title="Ctrl + Click options below.">or more</abbr>:
+    <nr/>
+    <?!= addNamedRangeSelectHtml(); ?>
+
+
+    <button id="choose" class="action">Export selected ranges</button><br/>
+    <button id="close">Cancel</button>   
+
+    <div id="msg"></div> 
+
+    <?!= include('stylesheet'); ?>
+
+    <!-- jquery 3.6.x -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+      language="javascript"></script>
+
+    <?!= include('javascript'); ?>
+    <?!= include('footer'); ?>
+  </body>
+
+<!--
+// name     : select.html
+// git      : https://github.com/pffy/markdown-table
+// author   : The Pffy Authors https://pffy.dev
+// license  : https://unlicense.org/  
+--> 
+</html>
