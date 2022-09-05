@@ -252,6 +252,7 @@ function say(str , title) {
       .toast(str, title, -1);  
 }
 
+// returns true if spreadsheet has named ranges; otherwise, false.
 function hasNamedRanges() {
   return !!SpreadsheetApp.getActiveSpreadsheet().getNamedRanges().length;
 }
