@@ -23,16 +23,8 @@ Google Sheets editor add-on that exports Markdown tables
     
 ### Copy spreadsheet document
   
-  + [**Make a copy**][copy] of the Cotton Markdown Tables add-on.
-    + **The add-on is only available for that specific spreadsheet file.**
-    + You can preview the Apps Script file before copying the file.
-    + You get your own personal copy of Cotton Markdown Tables.
-    + Distributed, decentralized copies of the add-on prevent external factors from breaking your spreadsheet or data workflow.
-    + This may be your only option, depending on how your Google account domain is managed.
-    + Only updated for new features and/or critical fixes. (You will need to ***re-copy*** the file each time.)
-    + Not reviewed or curated by Google.
-      + You must still grant authorization to ***yourself*** to use the special [permissions](#permissions). 
-
+  + Not available at this time.
+  
 ### G Suite administrator
 
   * Ask your G Suite administrator to add Cotton Markdown Tables to an add-on whitelist.
@@ -51,8 +43,8 @@ Google Sheets editor add-on that exports Markdown tables
 
 > **NOTE:** for developers and power users.
   
-  * Add each file in the `src` folder to your Google Apps Script editor.
-    * Create the file. Copy/paste the contents of the file.
+  * Add each file in the `dist` folder to your Google Apps Script editor.
+    * Create each file. Copy/paste the contents of each file.
     * In the Google Apps Script Editor `Project Settings` tab, be sure the box that says `Show "appsscript.json" manifest file in editor` before you copy/paste the contents into that file.
     + You must still grant authorization to ***yourself*** to use the special [permissions](#permissions). 
 
@@ -200,7 +192,6 @@ Google Sheets, Google Drive, and other Google software or features are trademark
 
 
 [g_scopes]: https://developers.google.com/identity/protocols/oauth2/scopes
-[copy]: https://docs.google.com/spreadsheets/d/1UGDkKWGyheNhW23nlffiC9arht4dtVDFt-OWa8Iu10c/copy
 [yt_options]: https://www.youtube.com/watch?v=WXVFfqUkGys
 [yt_cotton]: https://www.youtube.com/channel/UCl7X-xNklgG6Eg5X91TNn2Q?utm_source=github_pffy
 [cotton_menu]: https://github.com/pffy/b/blob/main/png/cotton-menu.png
