@@ -1,5 +1,5 @@
 # markdown-table
-Google Sheets editor add-on that exports Markdown tables
+Export Markdown tables from Google Sheets with this editor add-on
 
 # ICON
 
